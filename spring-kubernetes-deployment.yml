@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-deployment
+  namespace: greeting-namespace
+  labels:
+    app: greeting-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: greeting-app
+  template:
+    metadata:
+      labels:
+        app: greeting-app
+    spec:
+      containers:
+      - name: spring-app-lohith
+        image: learndockernow/spring-boot-app:latest
+        ports:
+        - containerPort: 8888
